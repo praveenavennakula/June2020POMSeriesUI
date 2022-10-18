@@ -1,10 +1,13 @@
 package com.qa.opencart.tests;
 
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.listeners.TestAllureListener;
 import com.qa.opencart.pages.LoginPage;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+//@Listeners(TestAllureListener.class)
 public class LoginPageTest extends BaseTest {
 
 @Test
