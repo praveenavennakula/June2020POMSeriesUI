@@ -19,7 +19,7 @@ public class LoginPageTest extends BaseTest {
     public void getPageTitleTest() {
         //LoginPage lp=new LoginPage(driver);we are not suppose dto call Driver API in Test class
         String title = lp.getLoginPageTitle();
-        Assert.assertEquals(title, "Account Login11");
+         Assert.assertEquals(title, "Account Login11");
 
     }
 

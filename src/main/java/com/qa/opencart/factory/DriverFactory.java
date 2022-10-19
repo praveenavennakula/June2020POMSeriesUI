@@ -1,7 +1,10 @@
 package com.qa.opencart.factory;
 
+import com.qa.opencart.errors.AppError;
+import com.qa.opencart.exception.FrameworkException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,9 +21,11 @@ import java.util.Properties;
 
 public class DriverFactory {
     public WebDriver driver;
+    private static final Logger LOG=Logger.getLogger(DriverFactory.class);
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
     public static String highlight;
     public OptionsManager optionsManager;
+
 
     /**
      * This method is used to initialize the driver as per the browser name
@@ -30,6 +35,8 @@ public class DriverFactory {
      */
     public WebDriver initDriver(Properties prop) {
         String browserName = prop.getProperty("browser").toLowerCase();
+        System.out.println("browser name is : " + browserName);
+        LOG.info("browser name is : " + browserName);
         optionsManager = new OptionsManager(prop);
         highlight = prop.getProperty("highlight");
         if (browserName.equals("chrome")) {
@@ -44,6 +51,10 @@ public class DriverFactory {
             WebDriverManager.edgedriver().setup();
             // driver=new EdgeDriver();
             tlDriver.set(new EdgeDriver(optionsManager.getEdgeOptions()));
+        } else {
+            System.out.println("Please pass the right browser name: " + browserName);
+            LOG.error("Please pass the right browser name : " + browserName);
+            throw new FrameworkException(AppError.BROWSER_NOT_FOUND);
         }
         getDriver().manage().window().maximize();
         getDriver().manage().deleteAllCookies();
@@ -58,9 +69,10 @@ public class DriverFactory {
     public Properties initProp() {
         Properties prop = new Properties();
         FileInputStream fp = null;
-        String envname = System.getProperty("env");
-                //System.getenv("env");
+       // String envname = System.getProperty("env");//use when we want to pass env value from cmd mvn
+        String envname=System.getenv("env");//used when we want to pass env value through run config-->env vars-->add->env,dev
         System.out.println("Running Test Cases on the environment: " + envname);
+        LOG.info("-----> Running test cases on environment: ----->"+ envname);
         //mvn clean install -Denv="qa"   //command line argument with env value as qa
         //mvn clean install           //command line argument without any input for env, so qa is default env
 
@@ -102,7 +114,8 @@ public class DriverFactory {
 
                     default:
                         System.out.println("Please pass the right environment name: " + envname);
-                        break;
+                        throw new FrameworkException(AppError.ENV_NOT_FOUND);
+                      //  break;when we throw, it will come out of the loop.
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
