@@ -1,3 +1,4 @@
 package com.qa.opencart.tests;
-public class SummaryTest{
+
+public class SummaryTest {
 }
