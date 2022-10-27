@@ -69,8 +69,8 @@ public class DriverFactory {
     public Properties initProp() {
         Properties prop = new Properties();
         FileInputStream fp = null;
-       // String envname = System.getProperty("env");//use when we want to pass env value from cmd mvn
-        String envname=System.getenv("env");//used when we want to pass env value through run config-->env vars-->add->env,dev
+       String envname = System.getProperty("env");//use when we want to pass env value from cmd mvn
+       // String envname=System.getenv("env");//used when we want to pass env value through run config-->env vars-->add->env,dev
         System.out.println("Running Test Cases on the environment: " + envname);
         LOG.info("-----> Running test cases on environment: ----->"+ envname);
         //mvn clean install -Denv="qa"   //command line argument with env value as qa
