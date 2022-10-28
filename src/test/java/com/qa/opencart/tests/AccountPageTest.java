@@ -27,28 +27,28 @@ public class AccountPageTest extends BaseTest {
         Assert.assertEquals(actAccPageTitle, "My Account");
     }
 
-    @Description("accPageUrlTest -- Dev Name: @Naveen Khunteta")
+    @Description("accPageUrlTest -- Dev Name: @praveena")
     @Severity(SeverityLevel.NORMAL)
     @Test(priority = 2)
     public void accPageURLTest() {
         Assert.assertTrue(accPage.getAcctPageURL());
     }
 
-    @Description("Acc page search test -- Dev Name: @Naveen Khunteta")
+    @Description("Acc page search test -- Dev Name:  @praveena")
     @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 3)
     public void searchExistTest() {
         Assert.assertTrue(accPage.isSearchExist());
     }
 
-    @Description("Acc page logout link exist test -- Dev Name: @Naveen Khunteta")
+    @Description("Acc page logout link exist test -- Dev Name:  @praveena")
     @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 4)
     public void isLogoutLinkExistTest() {
         Assert.assertTrue(accPage.isLogoutLinkExist());
     }
 
-    @Description("Acc page header test -- Dev Name: @Naveen Khunteta")
+    @Description("Acc page header test -- Dev Name:  @praveena")
     @Severity(SeverityLevel.TRIVIAL)
     @Test(priority = 5)
     public void accPageHeadersTest() {
@@ -67,7 +67,7 @@ public class AccountPageTest extends BaseTest {
 
     }
 
-    @Description("Acc page search check test -- Dev Name: @Naveen Khunteta")
+    @Description("Acc page search check test -- Dev Name:  @praveena")
     @Severity(SeverityLevel.CRITICAL)
     @Test(dataProvider = "getProductKeyData", priority = 6)
     public void searchCheckTest(String productKeyName) {
@@ -87,7 +87,7 @@ public class AccountPageTest extends BaseTest {
 
     }
 
-    @Description("Acc page product search test -- Dev Name: @Naveen Khunteta")
+    @Description("Acc page product search test -- Dev Name:  @praveena")
     @Severity(SeverityLevel.BLOCKER)
     @Test(dataProvider = "getProductData", priority = 7)
     public void searchTest(String productKeyName, String mainProductName) {
