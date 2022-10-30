@@ -39,8 +39,7 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/praveenavennakula/June2020POMSeriesUI.git'
                     /* sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml" */
-                    bat "allure report clean"
-                    bat "allure report clean -o allure-report"
+                    bat "allure generate -c"
                     bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/runners/testng_regression.xml"
 
                 }
@@ -86,7 +85,7 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/praveenavennakula/June2020POMSeriesUI.git'
                     /* sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml" */
-                    bat "allure report clean"
+
                     bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/runners/testng_sanity.xml"
 
                 }
