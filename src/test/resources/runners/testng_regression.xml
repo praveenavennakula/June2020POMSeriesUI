@@ -4,21 +4,21 @@
 <suite name="OpenCart Regression Suite" thread-count="2" parallel="tests" verbose="4">
 
     <listeners>
-        <listener class-name="com.qa.opencart.listeners.ExtentReportListener"/>
+<!--        <listener class-name="com.qa.opencart.listeners.ExtentReportListener"/>-->
         <listener class-name="com.qa.opencart.listeners.TestAllureListener"/>
-<!--        <listener class-name="com.qa.opencart.listeners.AnnotationTransformer" />-->
+        <!--        <listener class-name="com.qa.opencart.listeners.AnnotationTransformer" />-->
     </listeners>
     <test name="LoginPage Test">
-
+        <parameter name="browser" value="chrome" />
         <classes>
-            <class name="com.qa.opencart.tests.LoginPageTest" />
+            <class name="com.qa.opencart.tests.LoginPageTest"/>
         </classes>
     </test>
 
     <test name="AccountPage Test">
-
+        <parameter name="browser" value="firefox" />
         <classes>
-            <class name="com.qa.opencart.tests.AccountPageTest" />
+            <class name="com.qa.opencart.tests.AccountPageTest"/>
         </classes>
     </test>
 
