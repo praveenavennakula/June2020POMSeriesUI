@@ -24,15 +24,19 @@ public class BaseTest {
     public RegistrationPage regPage;
    // public Random rd;
 
-    @Parameters({"browser"})
+    @Parameters({"browser","browserversion","testname"})
     @BeforeTest
-    public void setup(String browser){
+    public void setup(String browser, String browserVersion, String testName){
 
         df=new DriverFactory();
         prop=df.initProp();
         if(browser!=null){
             prop.setProperty("browser",browser);
+            prop.setProperty("browserversion", browserVersion);
+            prop.setProperty("testname", testName);
             System.out.println(prop.getProperty("browser"));
+            System.out.println(prop.getProperty("browserversion"));
+            System.out.println(prop.getProperty("testname"));
         }
 
         driver=df.initDriver(prop);

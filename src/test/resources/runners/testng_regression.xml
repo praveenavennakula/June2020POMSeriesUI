@@ -8,15 +8,19 @@
         <listener class-name="com.qa.opencart.listeners.TestAllureListener"/>
         <!--        <listener class-name="com.qa.opencart.listeners.AnnotationTransformer" />-->
     </listeners>
-    <test name="LoginPage Test">
+    <test name="Login Test_chrome_90">
         <parameter name="browser" value="chrome" />
+        <parameter name="browserversion" value="90.0" />
+        <parameter name="testname" value="LoginPageTest" />
         <classes>
             <class name="com.qa.opencart.tests.LoginPageTest"/>
         </classes>
     </test>
 
-    <test name="AccountPage Test">
-        <parameter name="browser" value="firefox" />
+    <test name="Accounts Page Test_chrome_89">
+        <parameter name="browser" value="chrome" />
+        <parameter name="browserversion" value="89.0" />
+        <parameter name="testname" value="AccountsPageTest" />
         <classes>
             <class name="com.qa.opencart.tests.AccountPageTest"/>
         </classes>
